@@ -14,6 +14,9 @@
 		72DD6FF721000DBD004BFA53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72DD6FF521000DBD004BFA53 /* LaunchScreen.storyboard */; };
 		72DD700221000DBD004BFA53 /* test_server_earlgreyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DD700121000DBD004BFA53 /* test_server_earlgreyTests.swift */; };
 		72DD700D21000DBD004BFA53 /* test_server_earlgreyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DD700C21000DBD004BFA53 /* test_server_earlgreyUITests.swift */; };
+		72DD70632100DE40004BFA53 /* Ambassador.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DD701E21001CE5004BFA53 /* Ambassador.framework */; };
+		72DD70642100DE43004BFA53 /* EarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DD702021001CEB004BFA53 /* EarlGrey.framework */; };
+		72DD70652100DE46004BFA53 /* Embassy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DD702221001CEE004BFA53 /* Embassy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		72DD700821000DBD004BFA53 /* test.server.earlgreyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test.server.earlgreyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72DD700C21000DBD004BFA53 /* test_server_earlgreyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test_server_earlgreyUITests.swift; sourceTree = "<group>"; };
 		72DD700E21000DBD004BFA53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72DD701E21001CE5004BFA53 /* Ambassador.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ambassador.framework; path = Carthage/Build/iOS/Ambassador.framework; sourceTree = "<group>"; };
+		72DD702021001CEB004BFA53 /* EarlGrey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EarlGrey.framework; path = Carthage/Build/iOS/EarlGrey.framework; sourceTree = "<group>"; };
+		72DD702221001CEE004BFA53 /* Embassy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Embassy.framework; path = Carthage/Build/iOS/Embassy.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72DD70632100DE40004BFA53 /* Ambassador.framework in Frameworks */,
+				72DD70642100DE43004BFA53 /* EarlGrey.framework in Frameworks */,
+				72DD70652100DE46004BFA53 /* Embassy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +90,7 @@
 				72DD700021000DBD004BFA53 /* test.server.earlgreyTests */,
 				72DD700B21000DBD004BFA53 /* test.server.earlgreyUITests */,
 				72DD6FEA21000DB9004BFA53 /* Products */,
+				72DD701A210017B6004BFA53 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,6 +133,16 @@
 				72DD700E21000DBD004BFA53 /* Info.plist */,
 			);
 			path = test.server.earlgreyUITests;
+			sourceTree = "<group>";
+		};
+		72DD701A210017B6004BFA53 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72DD702221001CEE004BFA53 /* Embassy.framework */,
+				72DD702021001CEB004BFA53 /* EarlGrey.framework */,
+				72DD701E21001CE5004BFA53 /* Ambassador.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +190,7 @@
 				72DD700421000DBD004BFA53 /* Sources */,
 				72DD700521000DBD004BFA53 /* Frameworks */,
 				72DD700621000DBD004BFA53 /* Resources */,
+				72DD70622100DE32004BFA53 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -250,6 +271,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		72DD70622100DE32004BFA53 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Ambassador.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Embassy.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/EarlGrey.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Ambassador.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Embassy.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/EarlGrey.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		72DD6FE521000DB9004BFA53 /* Sources */ = {
@@ -432,6 +475,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47PCFA586Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = test.server.earlgrey/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,6 +497,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47PCFA586Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = test.server.earlgrey/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -469,6 +520,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47PCFA586Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = test.server.earlgreyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -490,6 +545,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47PCFA586Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = test.server.earlgreyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -510,6 +569,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47PCFA586Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = test.server.earlgreyUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -530,6 +593,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 47PCFA586Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = test.server.earlgreyUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

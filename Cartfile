@@ -1,3 +1,5 @@
 github "envoy/Embassy" ~> 4.0
+github "envoy/Ambassador" ~> 4.0
+
 github "google/EarlGrey" "1.2.0"
 
