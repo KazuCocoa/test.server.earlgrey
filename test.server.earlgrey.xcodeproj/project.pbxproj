@@ -17,6 +17,7 @@
 		72DD70632100DE40004BFA53 /* Ambassador.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DD701E21001CE5004BFA53 /* Ambassador.framework */; };
 		72DD70642100DE43004BFA53 /* EarlGrey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DD702021001CEB004BFA53 /* EarlGrey.framework */; };
 		72DD70652100DE46004BFA53 /* Embassy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DD702221001CEE004BFA53 /* Embassy.framework */; };
+		72DD70672100E861004BFA53 /* uitestbase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DD70662100E861004BFA53 /* uitestbase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		72DD701E21001CE5004BFA53 /* Ambassador.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ambassador.framework; path = Carthage/Build/iOS/Ambassador.framework; sourceTree = "<group>"; };
 		72DD702021001CEB004BFA53 /* EarlGrey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EarlGrey.framework; path = Carthage/Build/iOS/EarlGrey.framework; sourceTree = "<group>"; };
 		72DD702221001CEE004BFA53 /* Embassy.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Embassy.framework; path = Carthage/Build/iOS/Embassy.framework; sourceTree = "<group>"; };
+		72DD70662100E861004BFA53 /* uitestbase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uitestbase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			children = (
 				72DD700C21000DBD004BFA53 /* test_server_earlgreyUITests.swift */,
 				72DD700E21000DBD004BFA53 /* Info.plist */,
+				72DD70662100E861004BFA53 /* uitestbase.swift */,
 			);
 			path = test.server.earlgreyUITests;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72DD70672100E861004BFA53 /* uitestbase.swift in Sources */,
 				72DD700D21000DBD004BFA53 /* test_server_earlgreyUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
